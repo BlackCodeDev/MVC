@@ -18,22 +18,21 @@ namespace BSMVC
 
             var metadata = ModelMetadata.FromLambdaExpression(expression, helper.ViewData);
             var value = metadata.Model;
+            
             TagBuilder TextBoxTag = new TagBuilder("input");
             TextBoxTag.Attributes.Add("name", fieldName);
             TextBoxTag.Attributes.Add("id", fieldId);
             TextBoxTag.Attributes.Add("class", "form-control");
             TextBoxTag.Attributes.Add("value", value == null ? "" : value.ToString());
 
-
-
             var validationAttributes = helper.GetUnobtrusiveValidationAttributes(fullBindingName, metadata);
+            
             foreach (var key in validationAttributes.Keys)
             {
                 TextBoxTag.Attributes.Add(key, validationAttributes[key].ToString());
             }
 
             return new MvcHtmlString(TextBoxTag.ToString(TagRenderMode.SelfClosing));
-
         }
 
     }
