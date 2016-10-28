@@ -6,7 +6,7 @@ using System.Text;
 using System.Web;
 using System.Web.Mvc;
 
-namespace BSMVC
+namespace BlackCodeDev.Bootstrap.Mvc
 {
     public static class BSHelpers
     {
